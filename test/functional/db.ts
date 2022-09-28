@@ -5,7 +5,7 @@ export let connection: Knex;
 
 export async function connect() {
 	connection = knex({
-		client: 'mysql2',
+		client: 'pg',
 		log: {
 			warn: console.info,
 			error: console.error,

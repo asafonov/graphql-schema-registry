@@ -10,7 +10,7 @@ const clientsModel = {
 	SAVE_INTERVAL_MS: 30 * 1000,
 
 	init: () => {
-		logger.info('starting clients entity memory-to-mysql synchronizer');
+		logger.info('starting clients entity memory-to-pg synchronizer');
 		clientsModel.timer = setInterval(
 			clientsModel.syncUniqueClientsToDb,
 			clientsModel.SAVE_INTERVAL_MS

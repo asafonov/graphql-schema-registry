@@ -1,9 +1,9 @@
 const { services, discovery } = require('./discovery');
 
 const knex = require('knex')({
-	client: 'mysql2',
+	client: 'pg',
 	connection: async () => {
-		const { host, port } = await discovery(services.mysql);
+		const { host, port } = await discovery(services.pg);
 
 		return {
 			host,
