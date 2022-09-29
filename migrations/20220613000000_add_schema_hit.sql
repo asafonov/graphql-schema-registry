@@ -15,6 +15,9 @@ CREATE TABLE IF NOT EXISTS clients_persisted_queries_rel (
   UNIQUE(version_id,pq_key)
 );
 
+CREATE INDEX version_id ON clients_persisted_queries_rel (version_id);
+CREATE INDEX pg_key ON clients_persisted_queries_rel (pg_key);
+
 CREATE TABLE schema_hit
 (
   client_id int                                                       DEFAULT NULL,
@@ -25,3 +28,5 @@ CREATE TABLE schema_hit
   updated_time BIGINT NULL DEFAULT NULL,
   UNIQUE (client_id,entity,property,day)
 );
+
+CREATE INDEX entity ON schema_hit (entity, property);

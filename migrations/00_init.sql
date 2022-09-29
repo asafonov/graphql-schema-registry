@@ -47,6 +47,8 @@ CREATE TABLE IF NOT EXISTS schema
     CONSTRAINT schema_ibfk_1 FOREIGN KEY (service_id) REFERENCES services (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+CREATE INDEX service_id ON schema (service_id);
+
 CREATE TABLE IF NOT EXISTS container_schema
 (
     id         serial NOT NULL,
@@ -59,3 +61,5 @@ CREATE TABLE IF NOT EXISTS container_schema
     CONSTRAINT container_schema_ibfk_1 FOREIGN KEY (service_id) REFERENCES services (id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT container_schema_ibfk_2 FOREIGN KEY (schema_id) REFERENCES schema (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+CREATE INDEX schema_id ON container_schema (schema_id);
